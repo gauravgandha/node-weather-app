@@ -22,9 +22,10 @@ const forecast = function (cordinates, location, callback) {
                 callback('Check the location, it might not be correct', undefined)
             }
             else {
-
+                const daily = body.daily
                 const data = {
-                    msg: 'You are in ' + location + ' .Currently it is ' + currently.temperature + '  degrees out and there is  ' + currently.precipProbability + '% chances of rain.'
+                    msg:  location +' .Currently it is ' + currently.temperature + '  degrees out and there is  ' + currently.precipProbability * 100 + '% chances of rain.' ,
+                    forecast: daily.summary 
                 }
 
                 callback(undefined, data)
